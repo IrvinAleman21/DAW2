@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	 <title>TIENDA DE COMPUTADORAS</title>
+	 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+<body>
+	
+	
+	<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+	  <a class="navbar-brand" href="#">Home</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+	  <div class="collapse navbar-collapse" id="navbarNav">
+	    <ul class="navbar-nav">
+	      <li class="nav-item active">
+	        <a class="nav-link" href="#">Oferta del día <span class="sr-only">(current)</span></a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" href="#">Carrito</a>
+	      </li>
+	    </ul>
+	  </div>
+	</nav>
+	
+	
+	<div class="container mt-2">
+		<div class="row">
+			<div th:each="reg:${producto}" class="col-sm-4">
+				<div class="card">
+					<div class="card-header">
+						<label th:text="${reg.Nombres}" ></label>
+					</div>
+					<div class="card-body">
+						<i th:text="${reg.Precio}" ></i>
+						<img src="camara.jpg" width="200" height="180">
+					</div>
+					<div class="card-footer text-center">
+						<label th:text="${reg.Descripcion}" ></label>
+						<div>
+							<a href="" class="btn btn-outline-info" >Agregar al carrito</a>
+							<a th:href="@{/ver/}+${reg.Id}" class="btn btn-danger" >Comprar</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>

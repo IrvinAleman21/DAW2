@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	 <title>CARRITO</title>
+	 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+<body>	
+	<div class="container mt-4">
+		<h1>CARRITO</h1>
+		<br>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>DESCRIPCION</th>
+					<th>NOMBRES</th>
+					<th>PRECIO</th>
+					<th>STOCK</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="reg:${producto}">
+					<th th:text="${reg.Id}"></th>
+					<th th:text="${reg.Nombres}"></th>
+					<th th:text="${reg.Descripcion}"></th>
+					<th th:text="${reg.Precio}"></th>
+					<th th:text="${reg.Stock}"></th>
+					<td>
+						<a class="btn btn-danger">Suprimir</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
